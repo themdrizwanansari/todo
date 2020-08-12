@@ -1,30 +1,42 @@
 
-var task=[];
+var task = [];
+var input = document.getElementById("new_todo");
+
+input.addEventListener("keyup", (event) => {
+    if (event.keyCode === 13) createTodoItem();
+});
 
 function createTodoItem() {
-    var input = document.getElementById("new_todo");
 
     if (input.value === '') {
-        alert("Enter something to add");
+        alert("Enter something to add...");
+        input.focus();
         return;
     }
 
+    // List item
     var item = document.createElement("li");
-    var closeBtn = document.createElement("span");
-    closeBtn.appendChild(document.createTextNode('\u00D7'));
-    closeBtn.className = "close_button";
 
-    closeBtn.onclick = close;
-
+    //CheckBox Button
     var cb = document.createElement("span");
     cb.appendChild(document.createTextNode('\u2713'));
     cb.className = "check_box";
 
+    //Label
+    var label = document.createElement("label");
+    label.innerText = input.value;
+    label.className = "itemLabel";
+
+    //Close Button
+    var closeBtn = document.createElement("span");
+    closeBtn.appendChild(document.createTextNode('\u00D7'));
+    closeBtn.className = "close_button";
+    closeBtn.onclick = close;
 
 
-    var tn = document.createTextNode(input.value);
+    //var tn = document.createTextNode(input.value);
     item.appendChild(cb);
-    item.appendChild(tn);
+    item.appendChild(label);
     item.appendChild(closeBtn);
 
     item.onclick = toggleChecked;
@@ -38,7 +50,7 @@ function close() {
     this.parentElement.style.display = "none";
 }
 
-function toggleChecked(){
+function toggleChecked() {
     this.classList.toggle("completed");
 }
 

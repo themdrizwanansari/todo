@@ -12,17 +12,18 @@
 
 <body>
     <div class="header">
-        <h1>TODO LIST</h1>
+        <h1 style="color: crimson; text-decoration: underline 0.2rem;">TODO LIST</h1>
         <div id="input_section">
-            <input id="new_todo" type="text"><span id="add_btn" onclick="createTodoItem()">ADD</span>
+            <input id="new_todo" type="text" placeholder="Add items here..."><span id="add_btn" onclick="createTodoItem()">ADD</span>
         </div>
     </div>
-    <div class="list_section">
-        <ul id="list">
-        </ul>
+    <div class="paper">
+        <div class="list_section">
+            <ul id="list">
+            </ul>
+        </div>
     </div>
     <script src="todo.js"></script>
-
 </body>
 
 </html>
